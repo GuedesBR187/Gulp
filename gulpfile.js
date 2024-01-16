@@ -16,9 +16,9 @@ function compilaSass() {
 }
 
 function comprimirImagem() {
-    return gulp.src('.source/images/*')
+    return gulp.src('./source/images/*')
     .pipe(imagemin())
-    .pipe(gulp.dest('.build/images'))
+    .pipe(gulp.dest('./build/images'))
 }
 
 function comprimeJavaScript() {
@@ -28,7 +28,7 @@ function comprimeJavaScript() {
     .pipe(gulp.dest('./build/scripts'))
 }
 
-exports.default = function(){
+exports.default = function() {
     gulp.watch('./source/styles/*.scss',{ignoreInitial: false}, gulp.series(compilaSass));
     gulp.watch('./source/scripts/*.js',{ignoreInitial: false}, gulp.series(comprimeJavaScript));
     gulp.watch('./source/images/*',{ignoreInitial: false}, gulp.series(comprimirImagem));
